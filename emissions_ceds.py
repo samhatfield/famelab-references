@@ -2,9 +2,12 @@ import pandas as pd
 
 
 def print_results(datasource, year1, year2, emissions):
-    land_use_change_scale_factor = 0.33
-    emissions *= (1.0 + land_use_change_scale_factor)
-    print(f"{datasource} emissions for {year1}-{year2} {emissions/3.667:.0f} GtC ({emissions:.0f} GtCO2)")
+    land_use_change_scale_factor = 0.35
+    rescaled_emissions = emissions*(1.0 + land_use_change_scale_factor)
+    print(f"{datasource} emissions for {year1}-{year2} " +
+          f"{emissions/3.667:.0f} GtC ({emissions:.0f} GtCO2)")
+    print(f"{datasource} rescaled emissions for {year1}-{year2} " +
+          f"{rescaled_emissions/3.667:.0f} GtC ({rescaled_emissions:.0f} GtCO2)")
 
 
 # Read in data
